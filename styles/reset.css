@@ -1,4 +1,9 @@
 body{}
 .victor{clear: none;}
 .valeriu {clear:left;}
+<<<<<<< HEAD
 #valeriu {clear:right}
+=======
+
+.vicbug{clear: right;}
+>>>>>>> 36f95d5e9fb63f37cdc5af4d5be14988843bacc0
