@@ -3,9 +3,9 @@
   "version": "1.0",
   "manifest_version": 2,
   "description": "This free calculator is handy for determining sales taxes in Canada. Taxes are automatically calculated for the province selected.",
+  "icons": { "16": "icon-tax-16.png", "48": "icon-tax-48.png", "128": "icon-tax-128.png" },
   "browser_action": {
-  "default_icon": "icon.png"
-  "default_popup": "tax.html"
-  },
-
+  	"default_icon": "icon-tax.png",
+	"default_popup": "tax.html"
+  }
 }
