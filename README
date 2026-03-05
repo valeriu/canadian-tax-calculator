@@ -3,9 +3,9 @@ for all provinces and territories based on a base price.
 
 How to run:
 1. Open `tax.html` directly in a browser (or serve the folder via a local static server).
-3. Enter a price in CAD.
-4. Select a province or territory.
-5. Read base price, federal tax, provincial tax, total taxes, and final price.
+2. Enter a price in CAD.
+3. Select a province or territory.
+4. Read base price, federal tax, provincial tax, total taxes, and final price.
 
 How to test:
 - Run `node --test tests/*.test.mjs` (or `npm test` if npm is available)
@@ -16,8 +16,8 @@ Notes:
 - Input sanitization removes invalid characters while typing.
 - Input parser supports both `1,234.56` and `1 234,56`.
 - Tax calculation rounds each tax component to 2 decimals before totaling.
-- Tax rates are defined in `tax-data.js`.
-- Translations are defined in `i18n.js`.
+- Tax rates are defined in `assets/js/tax-data.js`.
+- Translations are defined in `assets/js/i18n.js`.
 - Rates are static and may change based on legislation.
 - Quebec uses GST 5% + QST 9.975%.
 - HST-only provinces are explicitly labeled in the UI.

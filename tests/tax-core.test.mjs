@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { calculateTaxBreakdown, parseLocalizedPrice, sanitizePriceInput } from "../tax-core.mjs";
+import { calculateTaxBreakdown, parseLocalizedPrice, sanitizePriceInput } from "../assets/js/tax-core.mjs";
 
 const ONTARIO_RATES = { federal: 0.13, provincial: 0.0 };
 const QUEBEC_RATES = { federal: 0.05, provincial: 0.09975 };
