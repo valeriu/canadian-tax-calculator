@@ -96,6 +96,37 @@
         border-top: 1px dashed var(--border);
         font-weight: 700;
       }
+
+      .meta {
+        margin-top: 12px;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      button {
+        margin-top: 12px;
+        width: auto;
+        min-width: 120px;
+        padding: 8px 12px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: #f8fafc;
+        color: var(--text);
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.15s ease, border-color 0.15s ease;
+      }
+
+      button:hover {
+        background: #eef2f7;
+        border-color: #9ca3af;
+      }
+
+      button:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
     </style>
   </head>
   <body>
@@ -106,7 +137,7 @@
         <label for="language" data-i18n="languageLabel">Language</label>
         <select name="language" id="language">
           <option value="en">English</option>
-          <option value="fr">Francais</option>
+          <option value="fr">Français</option>
         </select>
       </div>
 
@@ -124,32 +155,22 @@
 
       <div class="field">
         <label for="province" data-i18n="provinceLabel">Province or territory</label>
-        <select name="province" id="province">
-          <option value="alberta">Alberta</option>
-          <option value="british_columbia">British Columbia</option>
-          <option value="manitoba">Manitoba</option>
-          <option value="new_brunswick">New Brunswick</option>
-          <option value="newfoundland_labrador">Newfoundland and Labrador</option>
-          <option value="northwest_territories">Northwest Territories</option>
-          <option value="nova_scotia">Nova Scotia</option>
-          <option value="nunavut">Nunavut</option>
-          <option value="ontario" selected="selected">Ontario</option>
-          <option value="prince_edward_island">Prince Edward Island</option>
-          <option value="quebec">Quebec</option>
-          <option value="saskatchewan">Saskatchewan</option>
-          <option value="yukon">Yukon</option>
-        </select>
+        <select name="province" id="province"></select>
       </div>
 
       <p id="error" class="error" aria-live="polite"></p>
 
       <section class="results" aria-live="polite">
         <div class="row">
-          <span class="label" data-i18n="gstLine">Federal GST/HST</span>
+          <span class="label" data-i18n="basePriceLine">Price before taxes</span>
+          <strong id="base-price">$0.00</strong>
+        </div>
+        <div class="row">
+          <span class="label" id="federal-tax-label">Federal tax (GST/HST)</span>
           <strong id="gst">$0.00</strong>
         </div>
         <div class="row">
-          <span class="label" data-i18n="pstLine">Provincial tax (PST/QST/RST)</span>
+          <span class="label" id="provincial-tax-label">Provincial tax (PST/QST/RST)</span>
           <strong id="pst">$0.00</strong>
         </div>
         <div class="row">
@@ -161,8 +182,14 @@
           <strong id="final-price">$0.00</strong>
         </div>
       </section>
+
+      <button id="reset" type="button" data-i18n="resetButton">Reset</button>
+      <p id="tax-model" class="meta"></p>
+      <p id="rates-note" class="meta"></p>
     </main>
 
+    <script src="i18n.js"></script>
+    <script src="tax-data.js"></script>
     <script src="tax.js"></script>
   </body>
 </html>
