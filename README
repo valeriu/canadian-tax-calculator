@@ -1,1 +1,13 @@
-This free calculator is handy for determining sales taxes in Canada. Taxes are automatically calculated for the province selected.
+Canadian tax calculator that computes GST/HST and provincial tax (PST/QST/RST)
+for all provinces and territories based on a base price.
+
+How to run:
+1. Open `tax.html` in a browser.
+2. Enter a price in CAD.
+3. Select a province or territory.
+4. Read GST/HST, provincial tax, total taxes, and final price.
+
+Notes:
+- Input validation rejects negative or invalid values.
+- Quebec uses GST 5% + QST 9.975%.
+- HST provinces are represented in the GST/HST line.

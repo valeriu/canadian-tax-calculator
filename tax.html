@@ -1,38 +1,153 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>Canadian tax calculator's Popup</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Canadian Tax Calculator</title>
     <style>
+      :root {
+        --bg: #f4f7fb;
+        --panel: #ffffff;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --accent: #0f766e;
+        --border: #d1d5db;
+        --danger: #b91c1c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
-        min-width:357px;
-        overflow-x:hidden;
+        margin: 0;
+        padding: 24px;
+        font-family: "Avenir Next", "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(180deg, #edf3fa, var(--bg));
+        color: var(--text);
+      }
+
+      .calculator {
+        max-width: 440px;
+        margin: 0 auto;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+      }
+
+      h1 {
+        margin: 0 0 16px;
+        font-size: 1.2rem;
+      }
+
+      .field {
+        margin-bottom: 12px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.92rem;
+        font-weight: 600;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
+
+      .error {
+        min-height: 18px;
+        color: var(--danger);
+        font-size: 0.85rem;
+      }
+
+      .results {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--border);
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        margin: 8px 0;
+      }
+
+      .row .label {
+        color: var(--muted);
+      }
+
+      .row.total {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px dashed var(--border);
+        font-weight: 700;
       }
     </style>
-  <!-- JavaScript and HTML must be in separate files for security. -->
-    <script src="tax.js"></script>
   </head>
   <body>
-Price: <br />
-<input value="" name="price" id="price" type="text" ><br />
-Province:<br />
-<select name="province" id="province">
-    <option value="alberta">Alberta</option>
-    <option value="british_columbia">British Columbia</option>
-    <option value="manitoba">Manitoba</option>
-    <option value="new_brunswick">New Brunswick</option>
-    <option value="newfoundland_labrador">Newfoundland and Labrador</option>
-    <option value="northwest_territories">Northwest Territories</option>
-    <option value="nova_scotia">Nova Scotia</option>
-    <option value="nunavut">Nunavut</option>
-    <option value="ontario" selected="selected">Ontario</option>
-    <option value="prince_edward_island">Prince Edward Island</option>
-    <option value="quebec">Quebec</option>
-    <option value="saskatchewan">Saskatchewan</option>
-    <option value="yukon">Yukon</option>
-</select><br />
-Federal Goods and Services Tax (GST)<br />
-Provincial Sales Tax (PST)<br />
-Total Taxes:<br />
-Price After Taxes:<br />
+    <main class="calculator">
+      <h1>Canadian Tax Calculator</h1>
+
+      <div class="field">
+        <label for="price">Price (CAD)</label>
+        <input id="price" name="price" type="text" inputmode="decimal" placeholder="e.g. 100.00" />
+      </div>
+
+      <div class="field">
+        <label for="province">Province or territory</label>
+        <select name="province" id="province">
+          <option value="alberta">Alberta</option>
+          <option value="british_columbia">British Columbia</option>
+          <option value="manitoba">Manitoba</option>
+          <option value="new_brunswick">New Brunswick</option>
+          <option value="newfoundland_labrador">Newfoundland and Labrador</option>
+          <option value="northwest_territories">Northwest Territories</option>
+          <option value="nova_scotia">Nova Scotia</option>
+          <option value="nunavut">Nunavut</option>
+          <option value="ontario" selected="selected">Ontario</option>
+          <option value="prince_edward_island">Prince Edward Island</option>
+          <option value="quebec">Quebec</option>
+          <option value="saskatchewan">Saskatchewan</option>
+          <option value="yukon">Yukon</option>
+        </select>
+      </div>
+
+      <p id="error" class="error" aria-live="polite"></p>
+
+      <section class="results" aria-live="polite">
+        <div class="row">
+          <span class="label">Federal GST/HST</span>
+          <strong id="gst">$0.00</strong>
+        </div>
+        <div class="row">
+          <span class="label">Provincial tax (PST/QST/RST)</span>
+          <strong id="pst">$0.00</strong>
+        </div>
+        <div class="row">
+          <span class="label">Total taxes</span>
+          <strong id="total-tax">$0.00</strong>
+        </div>
+        <div class="row total">
+          <span class="label">Price after taxes</span>
+          <strong id="final-price">$0.00</strong>
+        </div>
+      </section>
+    </main>
+
+    <script src="tax.js"></script>
   </body>
 </html>
