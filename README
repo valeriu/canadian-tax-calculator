@@ -8,6 +8,8 @@ How to run:
 4. Read GST/HST, provincial tax, total taxes, and final price.
 
 Notes:
+- Supports English and French UI.
+- Selected language is saved in browser local storage.
 - Input validation rejects negative or invalid values.
 - Quebec uses GST 5% + QST 9.975%.
 - HST provinces are represented in the GST/HST line.

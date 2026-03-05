@@ -100,15 +100,30 @@
   </head>
   <body>
     <main class="calculator">
-      <h1>Canadian Tax Calculator</h1>
+      <h1 data-i18n="title">Canadian Tax Calculator</h1>
 
       <div class="field">
-        <label for="price">Price (CAD)</label>
-        <input id="price" name="price" type="text" inputmode="decimal" placeholder="e.g. 100.00" />
+        <label for="language" data-i18n="languageLabel">Language</label>
+        <select name="language" id="language">
+          <option value="en">English</option>
+          <option value="fr">Francais</option>
+        </select>
       </div>
 
       <div class="field">
-        <label for="province">Province or territory</label>
+        <label for="price" data-i18n="priceLabel">Price (CAD)</label>
+        <input
+          id="price"
+          name="price"
+          type="text"
+          inputmode="decimal"
+          placeholder="e.g. 100.00"
+          data-i18n-placeholder="pricePlaceholder"
+        />
+      </div>
+
+      <div class="field">
+        <label for="province" data-i18n="provinceLabel">Province or territory</label>
         <select name="province" id="province">
           <option value="alberta">Alberta</option>
           <option value="british_columbia">British Columbia</option>
@@ -130,19 +145,19 @@
 
       <section class="results" aria-live="polite">
         <div class="row">
-          <span class="label">Federal GST/HST</span>
+          <span class="label" data-i18n="gstLine">Federal GST/HST</span>
           <strong id="gst">$0.00</strong>
         </div>
         <div class="row">
-          <span class="label">Provincial tax (PST/QST/RST)</span>
+          <span class="label" data-i18n="pstLine">Provincial tax (PST/QST/RST)</span>
           <strong id="pst">$0.00</strong>
         </div>
         <div class="row">
-          <span class="label">Total taxes</span>
+          <span class="label" data-i18n="totalTaxLine">Total taxes</span>
           <strong id="total-tax">$0.00</strong>
         </div>
         <div class="row total">
-          <span class="label">Price after taxes</span>
+          <span class="label" data-i18n="finalPriceLine">Price after taxes</span>
           <strong id="final-price">$0.00</strong>
         </div>
       </section>
