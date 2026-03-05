@@ -1,1 +1,23 @@
-This free calculator is handy for determining sales taxes in Canada. Taxes are automatically calculated for the province selected.
+Canadian tax calculator that computes GST/HST and provincial tax (PST/QST/RST)
+for all provinces and territories based on a base price.
+
+How to run:
+1. Open `tax.html` directly in a browser (or serve the folder via a local static server).
+2. Enter a price in CAD.
+3. Select a province or territory.
+4. Read base price, federal tax, provincial tax, total taxes, and final price.
+
+How to test:
+- Run `node --test tests/*.test.mjs` (or `npm test` if npm is available)
+
+Notes:
+- Supports English and French UI (including translated province names).
+- Selected language is saved in browser local storage.
+- Input sanitization removes invalid characters while typing.
+- Input parser supports both `1,234.56` and `1 234,56`.
+- Tax calculation rounds each tax component to 2 decimals before totaling.
+- Tax rates are defined in `assets/js/tax-data.js`.
+- Translations are defined in `assets/js/i18n.js`.
+- Rates are static and may change based on legislation.
+- Quebec uses GST 5% + QST 9.975%.
+- HST-only provinces are explicitly labeled in the UI.
